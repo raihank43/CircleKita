@@ -14,7 +14,7 @@
       <form action="/post" method="post">
         <div class="user-info">
           <img class="profile-pic" src="/assets/user.png" alt="" />
-          <span class="username">Username</span>
+          <span class="username"><%= user.username %></span>
         </div>
         <textarea name="content" placeholder="What's happening?"></textarea>
         <input type="file" name="image" />
@@ -53,6 +53,11 @@
           <img class="profile-pic" src="/assets/user.png" alt="" />
           <p class="post-name">Anonymous</p>
           <p class="post-date">2024-01-01</p>
+          
+          
+          <img class="post-edit-logo" alt="">
+          <img class="post-delete-logo" alt="">
+      
         </div>
         <div class="post-content">
           <p>

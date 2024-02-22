@@ -56,7 +56,7 @@ class Controller {
           req.session.userId = user.id; // ini artinya ngasih jejak kalau user ini sedang login, set di controller
           //   console.log(req.session)
 
-          res.redirect("/homepage");
+          res.redirect(`/homepage`);
         } else {
           const error = `Password salah.`;
           res.redirect(`/login?error=${error}`);
@@ -84,7 +84,10 @@ class Controller {
   }
 
   static async homepage(req, res) {
-    res.render("homepage");
+    console.log(req.session.userId, "<<<<< dari router home"); // id user
+    const user = await User.findOne({ where: { id: req.session.userId } });
+    console.log(user, { user });
+    res.render("homepage", { user });
   }
 }
 
