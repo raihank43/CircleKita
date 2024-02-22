@@ -22,4 +22,6 @@ router.post("/edit", upload.single("profileImage"), Controller.saveEditProfile);
 
 router.get("/:username", Controller.othersProfile);
 
+router.get("/deletePost/:id", Controller.deletePost);
+
 module.exports = router;

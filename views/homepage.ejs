@@ -39,7 +39,7 @@
             <p class="post-date"><%= formatTime(element.createdAt) %></p></p>
 
             <% if (user.role == 'admin' || element.User.id == user.id) { %>
-            <a href=""  class="delete-button">Delete</a>
+            <a href="homepage/deletePost/<%= element.id %>"  class="delete-button">Delete</a>
             <% } %>
  
           </div>

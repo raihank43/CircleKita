@@ -105,8 +105,8 @@ class Controller {
       // res.json(dataPosts.posts);
       // console.log(dataPosts);
       //   res.send(dataPosts);
-        res.render("homepage", { dataPosts, user, formatTime });
-    //   res.send(user);
+      res.render("homepage", { dataPosts, user, formatTime });
+      //   res.send(user);
     } catch (error) {}
   }
 
@@ -276,6 +276,29 @@ class Controller {
         });
       }
 
+      res.redirect("/profile");
+    } catch (error) {
+      console.log(error);
+      res.send(error.message);
+    }
+  }
+  static async deletePost(req, res) {
+    const { id: postId } = req.params;
+    try {
+      const posts = await Post.findByPk(postId);
+      await posts.destroy();
+      res.redirect("/homepage");
+    } catch (error) {
+      console.log(error);
+      res.send(error.message);
+    }
+  }
+  static async deletePostInProfile(req, res) {
+    const { id: postId } = req.params;
+    try {
+      // res.send("hapus");
+      const posts = await Post.findByPk(postId);
+      await posts.destroy();
       res.redirect("/profile");
     } catch (error) {
       console.log(error);
