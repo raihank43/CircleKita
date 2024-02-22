@@ -76,6 +76,10 @@ module.exports = (sequelize, DataTypes) => {
           },
         },
       },
+      profileImage: {
+        type: DataTypes.STRING,
+        allowNull: false,
+      },
     },
     {
       hooks: {
