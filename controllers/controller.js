@@ -252,6 +252,26 @@ class Controller {
       res.send(error.message);
     }
   }
+  static async saveEditProfile(req, res) {
+    const { fullName, phoneNumber, address } = req.body;
+    // console.log(req.body, "<<<<<<<<<<<");
+    const profileImage = req.file ? req.file.filename : null;
+    try {
+      const [profile, created] = await Profile.findOrCreate({
+        where: { UserId: req.session.userId },
+        defaults: { UserId: req.session.userId, fullName, phoneNumber, address, profilePicture: profileImage },
+      });
+
+      if (!created) {
+        await profile.update({ fullName, phoneNumber, address, profilePicture: profileImage });
+      }
+
+      res.redirect("/profile");
+    } catch (error) {
+      console.log(error);
+      res.send(error.message);
+    }
+  }
 }
 
 module.exports = Controller;
