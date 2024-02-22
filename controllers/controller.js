@@ -91,7 +91,10 @@ class Controller {
       include: Profile,
       where: { id: req.session.userId },
     });
-    const dataPosts = await Post.findAll({ include: User });
+    const dataPosts = await Post.findAll({
+      include: User,
+      order: [["createdAt", "DESC"]],
+    });
     // const Post = await Post.findByPk(req.session.userId);
     try {
       // res.json(user);
@@ -128,16 +131,16 @@ class Controller {
           {
             model: Post,
             where: { UserId: req.session.userId },
-            required: false, // ini diperlukan jika ingin mendapatkan user bahkan jika mereka tidak memiliki post
-            // order: [["createdAt", "DESC"]], // ini akan mengurutkan post berdasarkan createdAt dalam urutan menurun
+            required: false,
           },
         ],
+        order: [[Post, "createdAt", "DESC"]], // ini akan mengurutkan post berdasarkan createdAt dalam urutan menurun
       });
 
       if (!dataUser.Profile) {
         res.redirect("/profile/create");
       } else {
-        res.render("userProfile", { dataUser });
+        res.render("userProfile", { dataUser, formatTime });
       }
 
       //   res.send(dataUserPost)
