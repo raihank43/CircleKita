@@ -2,7 +2,7 @@
   "development": {
     "username": "postgres",
     "password": "postgres",
-    "database": "simpleLoginRegister",
+    "database": "CircleKita",
     "host": "localhost",
     "dialect": "postgres"
   },
