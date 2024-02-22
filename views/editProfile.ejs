@@ -14,15 +14,15 @@
       <div class="error-alert-register"></div>
 
       <div>
-        <form action="" enctype="multipart/form-data" method="post">
+        <form action="/profile/edit" method="post" enctype="multipart/form-data">
           <label>Full Name</label><br />
           <input type="text" name="fullName" value="<%= dataUserProfile.Profile.fullName %>" /><br />
 
           <label>Phone Number</label><br />
-          <input type="text" name="phoneNumber" value="<%= dataUserProfile.Profile.phoneNumber %>"/><br />
+          <input type="text" name="phoneNumber" value="<%= dataUserProfile.Profile.phoneNumber %>" /><br />
 
           <label>Address</label><br />
-          <input type="text" name="address" value="<%= dataUserProfile.Profile.address %>"/><br />
+          <input type="text" name="address" value="<%= dataUserProfile.Profile.address %>" /><br />
 
           <label>Upload Profile Picture</label><br />
           <input type="file" name="profileImage" accept="image/*" required />
