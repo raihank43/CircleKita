@@ -1,3 +1,4 @@
+const { Op } = require("sequelize");
 const formatTime = require("../helpers/formatWaktu");
 const { User, Post, Profile } = require("../models");
 const bcrypt = require("bcryptjs");
@@ -225,21 +226,27 @@ class Controller {
       res.send(error.message);
     }
   }
-  static async saveEditProfile(req, res) {
-    const { fullName, phoneNumber, address } = req.body;
-    // console.log(req.body, "<<<<<<<<<<<");
-    const profileImage = req.file ? req.file.filename : null;
+
+  static async search(req, res) {
+    const { search } = req.query;
     try {
-      const [profile, created] = await Profile.findOrCreate({
-        where: { UserId: req.session.userId },
-        defaults: { UserId: req.session.userId, fullName, phoneNumber, address, profilePicture: profileImage },
+      const searchData = await Post.findAll({
+        include: [
+          {
+            model: User,
+            include: [Profile],
+          },
+        ],
+        where: {
+          content: {
+            [Op.iLike]: `%${search}%`,
+          },
+        },
       });
 
-      if (!created) {
-        await profile.update({ fullName, phoneNumber, address, profilePicture: profileImage });
-      }
-
-      res.redirect("/profile");
+      //   console.log(searchData);
+      //   res.send(searchData);
+      res.render("search", { searchData, search, formatTime });
     } catch (error) {
       console.log(error);
       res.send(error.message);

@@ -23,6 +23,7 @@ router.get("/", (req, res) => {
   res.redirect("/homepage");
 });
 router.use("/profile", require("./profile"))
+router.get("/search", Controller.search)
 router.get("/logout", Controller.getLogout);
 
 module.exports = router;
