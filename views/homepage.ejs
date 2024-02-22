@@ -29,6 +29,7 @@
         <% } %>
 
         <textarea name="content" placeholder="What's happening?"></textarea>
+        
 
         <% if (error) { %> <% const errorSplit = error.split(",") %>
         <div class="alert-message">
@@ -78,11 +79,15 @@
             <img src="/file-posts/<%= element.filePosts %>" alt="" class="post-img" />
             
             
-              <p>Tags: 
+              
+
+              <div class="tags-container">Tags:
                 <% element.Tags.forEach(tag => { %>
-                  <%= tag.name %>,
+                  <span class="tag"><%= tag.name %></span>
                 <% }) %>
-              </p>
+              </div>
+
+              
 
             <div class="post-footer">
               <a class="like-button" href="/homepage/like/<%= element.id %>">
