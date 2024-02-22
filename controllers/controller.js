@@ -89,19 +89,21 @@ class Controller {
       where: { id: req.session.userId },
     });
     const dataPosts = await Post.findAll({ include: User });
+    // const Post = await Post.findByPk(req.session.userId);
     try {
-      // res.json(dataPosts);
+      // res.json(user);
+      // res.json(dataPosts.posts);
       // console.log(dataPosts);
       res.render("homepage", { dataPosts, user });
     } catch (error) {}
   }
 
   static async createPost(req, res) {
-    console.log(req.body);
-    console.log(req.session.userId);
+    const filePosts = req.file.filename;
+    const { title, content, image } = req.body;
     try {
-      const dataPosts = await Post.findAll({ include: User });
-      res.send(dataPosts);
+      await Post.create({ title, content, filePosts, UserId: req.session.userId });
+      res.redirect("/homepage");
     } catch (error) {
       console.log(error);
       res.send(error.message);
