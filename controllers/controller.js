@@ -14,9 +14,12 @@ class Controller {
 
   static async postRegister(req, res) {
     const { username, email, password, role } = req.body;
+    const profileImage = req.file.filename;
+    // console.log(profileImage);
+    // console.log(req.body, "<<<<<<<<<");
 
     try {
-      await User.create({ username, email, password, role });
+      await User.create({ username, email, password, role, profileImage });
       res.redirect("/login");
     } catch (error) {
       console.log(error);
