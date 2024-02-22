@@ -1,4 +1,4 @@
-const { User } = require("../models");
+const { User, Post } = require("../models");
 const bcrypt = require("bcryptjs");
 
 class Controller {
@@ -84,7 +84,12 @@ class Controller {
   }
 
   static async homepage(req, res) {
-    res.render("homepage");
+    const dataPosts = await Post.findAll({ include: User });
+    try {
+      // res.json(dataPosts);
+      // console.log(dataPosts);
+      res.render("homepage", { dataPosts });
+    } catch (error) {}
   }
 }
 
