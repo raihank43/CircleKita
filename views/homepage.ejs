@@ -16,6 +16,7 @@
           <img class="profile-pic" src="/assets/user.png" alt="" />
           <span class="username"><%= user.username %></span>
         </div>
+        <input type="text" name="title" placeholder="Title">
         <textarea name="content" placeholder="What's happening?"></textarea>
         <input type="file" name="image" />
         <input type="submit" value="Post" />
@@ -35,6 +36,7 @@
             <p class="post-date"><%= element.createdAt %></p></p>
           </div>
           <div class="post-content">
+            <h2><%= element.title %></h2>
             <p>
               <%= element.content %>
             </p>

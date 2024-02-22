@@ -94,10 +94,20 @@ class Controller {
   }
 
   static async createPost(req, res) {
-    console.log(req.body)
+    console.log(req.body);
+    console.log(req.session.userId);
     try {
       const dataPosts = await Post.findAll({ include: User });
       res.send(dataPosts);
+    } catch (error) {
+      console.log(error);
+      res.send(error.message);
+    }
+  }
+
+  static async profile(req, res) {
+    try {
+      res.send(`test`);
     } catch (error) {
       console.log(error);
       res.send(error.message);
