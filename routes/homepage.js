@@ -4,6 +4,7 @@ const router = express.Router();
 
 
 router.get("/", Controller.homepage)
+router.post("/", Controller.createPost)
 
 
 
