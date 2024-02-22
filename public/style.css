@@ -311,15 +311,28 @@ body {
 }
 
 .post-desc .post-name a {
-    text-decoration: none;
-    color: white;
-    font-weight: bold;
-    margin-right: 10px;
-  }
-  
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+  margin-right: 10px;
+}
 
 .post-desc .post-name :hover {
-    color: rgb(107, 155, 194);
+  color: rgb(107, 155, 194);
+}
+
+.post-desc .delete-button {
+  margin-left: 50px;
+  background-color: #aa0000;
+  color: #ffffff;
+  padding: 5px 10px;
+  border-radius: 3px;
+  text-decoration: none;
+}
+
+.post-desc .delete-button:hover {
+    background-color: #ff0000;
+    font-weight: bold;
   }
   
 

@@ -15,15 +15,13 @@ class Controller {
   }
 
   static async postRegister(req, res) {
-    const { username, email, password, role } = req.body;
+    const { username, email, password } = req.body;
     // const profileImage = req.file.filename;
     // console.log(profileImage);
     // console.log(req.body, "<<<<<<<<<");
 
-    console.log(req.body);
-
     try {
-      await User.create({ username, email, password, role });
+      await User.create({ username, email, password, role: "user" });
       res.redirect("/login");
     } catch (error) {
       console.log(error);
@@ -88,26 +86,27 @@ class Controller {
   }
 
   static async homepage(req, res) {
-    const user = await User.findOne({
-      include: Profile,
-      where: { id: req.session.userId },
-    });
-    const dataPosts = await Post.findAll({
-      include: [
-        {
-          model: User,
-          include: [Profile],
-        },
-      ],
-      order: [["createdAt", "DESC"]],
-    });
-    // const Post = await Post.findByPk(req.session.userId);
     try {
+      const user = await User.findOne({
+        include: Profile,
+        where: { id: req.session.userId },
+      });
+      const dataPosts = await Post.findAll({
+        include: [
+          {
+            model: User,
+            include: [Profile],
+          },
+        ],
+        order: [["createdAt", "DESC"]],
+      });
+
       // res.json(user);
       // res.json(dataPosts.posts);
       // console.log(dataPosts);
       //   res.send(dataPosts);
-      res.render("homepage", { dataPosts, user, formatTime });
+        res.render("homepage", { dataPosts, user, formatTime });
+    //   res.send(user);
     } catch (error) {}
   }
 
@@ -259,11 +258,22 @@ class Controller {
     try {
       const [profile, created] = await Profile.findOrCreate({
         where: { UserId: req.session.userId },
-        defaults: { UserId: req.session.userId, fullName, phoneNumber, address, profilePicture: profileImage },
+        defaults: {
+          UserId: req.session.userId,
+          fullName,
+          phoneNumber,
+          address,
+          profilePicture: profileImage,
+        },
       });
 
       if (!created) {
-        await profile.update({ fullName, phoneNumber, address, profilePicture: profileImage });
+        await profile.update({
+          fullName,
+          phoneNumber,
+          address,
+          profilePicture: profileImage,
+        });
       }
 
       res.redirect("/profile");
