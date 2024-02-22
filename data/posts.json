@@ -1,0 +1,82 @@
+[
+  {
+    "title": "Post 1",
+    "content": "Lorem ipsum dolor sit amet.",
+    "createdAt": "2024-02-22T12:00:00Z",
+    "updatedAt": "2024-02-22T12:30:00Z",
+    "likes": 5,
+    "UserId": 1
+  },
+  {
+    "title": "Post 2",
+    "content": "Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    "createdAt": "2024-02-22T13:00:00Z",
+    "updatedAt": "2024-02-22T13:45:00Z",
+    "likes": 8,
+    "UserId": 2
+  },
+  {
+    "title": "Post 3",
+    "content": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.",
+    "createdAt": "2024-02-22T14:00:00Z",
+    "updatedAt": "2024-02-22T14:30:00Z",
+    "likes": 3,
+    "UserId": 3
+  },
+  {
+    "title": "Post 4",
+    "content": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
+    "createdAt": "2024-02-22T15:00:00Z",
+    "updatedAt": "2024-02-22T15:45:00Z",
+    "likes": 10,
+    "UserId": 4
+  },
+  {
+    "title": "Post 5",
+    "content": "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+    "createdAt": "2024-02-22T16:00:00Z",
+    "updatedAt": "2024-02-22T16:30:00Z",
+    "likes": 7,
+    "UserId": 5
+  },
+  {
+    "title": "Post 6",
+    "content": "Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit.",
+    "createdAt": "2024-02-22T17:00:00Z",
+    "updatedAt": "2024-02-22T17:45:00Z",
+    "likes": 2,
+    "UserId": 6
+  },
+  {
+    "title": "Post 7",
+    "content": "Sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.",
+    "createdAt": "2024-02-22T18:00:00Z",
+    "updatedAt": "2024-02-22T18:30:00Z",
+    "likes": 6,
+    "UserId": 7
+  },
+  {
+    "title": "Post 8",
+    "content": "Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit.",
+    "createdAt": "2024-02-22T19:00:00Z",
+    "updatedAt": "2024-02-22T19:45:00Z",
+    "likes": 9,
+    "UserId": 8
+  },
+  {
+    "title": "Post 9",
+    "content": "Nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam.",
+    "createdAt": "2024-02-22T20:00:00Z",
+    "updatedAt": "2024-02-22T20:30:00Z",
+    "likes": 4,
+    "UserId": 9
+  },
+  {
+    "title": "Post 10",
+    "content": "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident.",
+    "createdAt": "2024-02-22T21:00:00Z",
+    "updatedAt": "2024-02-22T21:45:00Z",
+    "likes": 12,
+    "UserId": 10
+  }
+]
