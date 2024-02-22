@@ -14,13 +14,13 @@
     <div class="post-form">
       <form method="post">
         <div class="user-info">
-          <img class="profile-pic" src="/assets/user.png" alt="" />
+          <img class="profile-pic" src="/profilePicture/<%= user.Profile.profilePicture %>" alt="" />
           <span class="username"><%= user.username %></span>
         </div>
         <input type="text" name="title" placeholder="Title">
         <textarea name="content" placeholder="What's happening?"></textarea>
         <label for="filePosts">Post File</label>
-        <input type="file" name="filePosts" accept="image/*" required />
+        <input type="file" name="filePosts" accept="image/*"/>
         <input type="submit" value="Post" />
       </form>
     </div>
@@ -34,7 +34,7 @@
       <% dataPosts.forEach(element => { %>
         <div class="feed-posts">
           <div class="post-desc">
-            <img class="profile-pic" src="/assets/user.png" alt="" />
+            <img class="profile-pic" <%- !element.User.Profile || !element.User.Profile.profilePicture ? 'src="/assets/empty-profile.png"' : `src="/profilePicture/${element.User.Profile.profilePicture}"` %> alt="" />
             <p class="post-name"><%= element.User.username %></p>
             <p class="post-date"><%= formatTime(element.createdAt) %></p></p>
           </div>

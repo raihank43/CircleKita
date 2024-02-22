@@ -92,20 +92,24 @@ class Controller {
       where: { id: req.session.userId },
     });
     const dataPosts = await Post.findAll({
-      include: User,
-      order: [["createdAt", "DESC"]],
-    });
+        include: [{
+          model: User,
+          include: [Profile]
+        }],
+        order: [["createdAt", "DESC"]],
+      });
     // const Post = await Post.findByPk(req.session.userId);
     try {
       // res.json(user);
       // res.json(dataPosts.posts);
       // console.log(dataPosts);
-      res.render("homepage", { dataPosts, user, formatTime });
+    //   res.send(dataPosts);
+        res.render("homepage", { dataPosts, user, formatTime });
     } catch (error) {}
   }
 
   static async createPost(req, res) {
-    const filePosts = req.file.filename;
+    const filePosts = req.file ? req.file.filename : null; // Jika req.file ada, gunakan req.file.filename. Jika tidak, gunakan null.
     const { title, content, image } = req.body;
     try {
       await Post.create({
