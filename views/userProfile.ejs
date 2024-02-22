@@ -1,13 +1,75 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><%= `${dataUserProfile.Profile.fullName}'s Profile` %></title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%= `${dataUser.Profile.fullName}'s Profile` %></title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
     <%- include('_navbarhomepage') %>
+
+    <div class="profile-header">
+
+        <div class="profile-img">
+ <img
+        src="/profilePicture/<%= dataUser.Profile.profilePicture %>"
+        alt=""
+      />
+
+        </div><br>
+     
+
+      <div class="profile-desc">
+<p class="profile-fullname"><%= dataUser.Profile.fullName %></p>
+      <p class="profile-username"><%= dataUser.username %></p>
+      <p class="profile-createdDate"><%= dataUser.createdAt %></p>
+      <p class="profile-address"><%= dataUser.Profile.address %></p>
+      <p class="profile-phoneNumber"><%= dataUser.Profile.phoneNumber %></p>
+      </div>
+      
+      <div class="edit-profile button">
+        <a href=""> Edit Profile</a>
+       
+      </div>
+    </div>
+
+
+    <div>
+        <h1 style="text-align: center;"><%= `${dataUser.Profile.fullName}'s Posts` %></h1>
+    </div>
+
+
+<% dataUser.Posts.forEach(element => { %>
+    <div class="profile-post">
+            <div class="feed-posts">
+              <div class="post-desc">
+                <img class="profile-pic" src="/profilePicture/<%= dataUser.Profile.profilePicture %>" alt="" />
+                <p class="post-name"><%= dataUser.username %></p>
+                <p class="post-date"><%= element.createdAt %></p></p>
+              </div>
+              <div class="post-content">
+                <h2><%= element.title %></h2>
+                <p><%= element.content %></p>
+                <img src="/file-posts/<%= element.filePosts %>" alt="" class="post-img" />
+                <!-- <img src="file-posts/filePosts-1708594674667.png" alt="" class="post-img" /> -->
     
-</body>
+                <div class="post-footer">
+                  <button class="like-button">
+                      <img src="path/to/like-icon.png" alt="Like" class="likes-logo" />
+                  </button>
+                  <p class="post-likes" id="post-likes"><%= element.likes %></p>
+              </div>
+                
+              </div>
+            </div>
+        </div>
+    
+<% }) %>
+ 
+
+
+
+    </div>
+  </body>
 </html>

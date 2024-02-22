@@ -18,6 +18,8 @@ class Controller {
     // console.log(profileImage);
     // console.log(req.body, "<<<<<<<<<");
 
+    console.log(req.body);
+
     try {
       await User.create({ username, email, password, role });
       res.redirect("/login");
@@ -102,7 +104,12 @@ class Controller {
     const filePosts = req.file.filename;
     const { title, content, image } = req.body;
     try {
-      await Post.create({ title, content, filePosts, UserId: req.session.userId });
+      await Post.create({
+        title,
+        content,
+        filePosts,
+        UserId: req.session.userId,
+      });
       res.redirect("/homepage");
     } catch (error) {
       console.log(error);
@@ -113,18 +120,26 @@ class Controller {
   static async profile(req, res) {
     console.log(req.session.userId);
     try {
-      const dataUserProfile = await User.findOne({
-        include: Profile,
+      const dataUser = await User.findOne({
         where: { id: req.session.userId },
+        include: [
+          Profile,
+          {
+            model: Post,
+            where: { UserId: req.session.userId },
+            required: false, // ini diperlukan jika ingin mendapatkan user bahkan jika mereka tidak memiliki post
+            // order: [["createdAt", "DESC"]], // ini akan mengurutkan post berdasarkan createdAt dalam urutan menurun
+          },
+        ],
       });
 
-      if (!dataUserProfile.Profile) {
+      if (!dataUser.Profile) {
         res.redirect("/profile/create");
       } else {
-        res.render("userProfile", { dataUserProfile });
+        res.render("userProfile", { dataUser });
       }
 
-      // res.send(dataUserProfile)
+      //   res.send(dataUserPost)
     } catch (error) {
       console.log(error);
       res.send(error.message);
@@ -138,7 +153,7 @@ class Controller {
         where: { id: req.session.userId },
       });
 
-      res.render("createProfile");
+      res.render("createProfile", { dataUserProfile });
     } catch (error) {
       console.log(error);
       res.send(error.message);
@@ -148,8 +163,6 @@ class Controller {
   static async saveProfile(req, res) {
     const { fullName, phoneNumber, address } = req.body;
     const profileImage = req.file.filename;
-    console.log(req.body);
-    console.log(profileImage);
     try {
       await Profile.create({
         fullName,
