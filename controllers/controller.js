@@ -1,3 +1,4 @@
+const formatTime = require("../helpers/formatWaktu");
 const { User, Post, Profile } = require("../models");
 const bcrypt = require("bcryptjs");
 
@@ -96,7 +97,7 @@ class Controller {
       // res.json(user);
       // res.json(dataPosts.posts);
       // console.log(dataPosts);
-      res.render("homepage", { dataPosts, user });
+      res.render("homepage", { dataPosts, user, formatTime });
     } catch (error) {}
   }
 

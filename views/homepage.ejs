@@ -36,7 +36,7 @@
           <div class="post-desc">
             <img class="profile-pic" src="/assets/user.png" alt="" />
             <p class="post-name"><%= element.User.username %></p>
-            <p class="post-date"><%= element.createdAt %></p></p>
+            <p class="post-date"><%= formatTime(element.createdAt) %></p></p>
           </div>
           <div class="post-content">
             <h2><%= element.title %></h2>
