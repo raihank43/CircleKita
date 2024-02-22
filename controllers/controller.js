@@ -1,3 +1,4 @@
+const formatTime = require("../helpers/formatWaktu");
 const { User, Post, Profile } = require("../models");
 const bcrypt = require("bcryptjs");
 
@@ -94,7 +95,7 @@ class Controller {
       // res.json(user);
       // res.json(dataPosts.posts);
       // console.log(dataPosts);
-      res.render("homepage", { dataPosts, user });
+      res.render("homepage", { dataPosts, user, formatTime });
     } catch (error) {}
   }
 
@@ -148,8 +149,8 @@ class Controller {
   static async saveProfile(req, res) {
     const { fullName, phoneNumber, address } = req.body;
     const profileImage = req.file.filename;
-    console.log(req.body);
-    console.log(profileImage);
+    // console.log(req.body);
+    // console.log(profileImage);
     try {
       await Profile.create({
         fullName,
