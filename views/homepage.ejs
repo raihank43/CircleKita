@@ -10,6 +10,7 @@
   <body>
     <%- include('_navbarhomepage') %>
 
+    <form action="" method="POST" enctype="multipart/form-data">
     <div class="post-form">
       <form method="post">
         <div class="user-info">
@@ -18,10 +19,12 @@
         </div>
         <input type="text" name="title" placeholder="Title">
         <textarea name="content" placeholder="What's happening?"></textarea>
-        <input type="file" name="image" />
+        <label for="filePosts">Post File</label>
+        <input type="file" name="filePosts" accept="image/*" required />
         <input type="submit" value="Post" />
       </form>
     </div>
+  </form>
 
     <div class="feed">
 
@@ -40,7 +43,7 @@
             <p>
               <%= element.content %>
             </p>
-            <img src="" alt="" class="post-img" />
+            <img src="../uploads/<%= element.fileposts %>" alt="" class="post-img" />
 
             <div class="post-footer">
               <button class="like-button">

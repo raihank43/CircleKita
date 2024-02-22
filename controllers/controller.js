@@ -94,18 +94,11 @@ class Controller {
   }
 
   static async createPost(req, res) {
-<<<<<<< HEAD
-    // const profileImage = req.file.filename;
-    // const newUser = await User.create({ username, email, password, profileImage });
-    const { content, image } = req.body;
-    console.log(req.body);
-=======
-    console.log(req.body);
-    console.log(req.session.userId);
->>>>>>> 731b007d5e87bc8b517e8773aee4d4de8b2d122a
+    const filePosts = req.file.filename;
+    const { title, content, image } = req.body;
     try {
-      // const dataPosts = await Post.findAll({ include: User });
-      // res.send(dataPosts);
+      await Post.create({ title, content, filePosts, UserId: req.session.userId });
+      res.redirect("/homepage");
     } catch (error) {
       console.log(error);
       res.send(error.message);
