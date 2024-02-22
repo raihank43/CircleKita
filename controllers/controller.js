@@ -92,19 +92,21 @@ class Controller {
       where: { id: req.session.userId },
     });
     const dataPosts = await Post.findAll({
-        include: [{
+      include: [
+        {
           model: User,
-          include: [Profile]
-        }],
-        order: [["createdAt", "DESC"]],
-      });
+          include: [Profile],
+        },
+      ],
+      order: [["createdAt", "DESC"]],
+    });
     // const Post = await Post.findByPk(req.session.userId);
     try {
       // res.json(user);
       // res.json(dataPosts.posts);
       // console.log(dataPosts);
-    //   res.send(dataPosts);
-        res.render("homepage", { dataPosts, user, formatTime });
+      //   res.send(dataPosts);
+      res.render("homepage", { dataPosts, user, formatTime });
     } catch (error) {}
   }
 
@@ -126,7 +128,6 @@ class Controller {
   }
 
   static async profile(req, res) {
-    console.log(req.session.userId);
     try {
       const dataUser = await User.findOne({
         where: { id: req.session.userId },
@@ -180,6 +181,45 @@ class Controller {
         profilePicture: profileImage,
       });
       res.redirect("/profile");
+    } catch (error) {
+      console.log(error);
+      res.send(error.message);
+    }
+  }
+
+  static async othersProfile(req, res) {
+    const { username } = req.params;
+
+    try {
+      const dataUser = await User.findOne({
+        where: { username: username },
+        include: [
+          Profile,
+          {
+            model: Post,
+            required: false,
+          },
+        ],
+        order: [[Post, "createdAt", "DESC"]], // ini akan mengurutkan post berdasarkan createdAt dalam urutan menurun
+      });
+
+      res.render("othersProfile", { dataUser, formatTime });
+
+      //   res.send(dataUserPost)
+    } catch (error) {
+      console.log(error);
+      res.send(error.message);
+    }
+  }
+
+  static async editProfile(req, res) {
+    try {
+      const dataUserProfile = await User.findOne({
+        include: Profile,
+        where: { id: req.session.userId },
+      });
+
+      res.render("editProfile", { dataUserProfile });
     } catch (error) {
       console.log(error);
       res.send(error.message);

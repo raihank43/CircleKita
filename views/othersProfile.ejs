@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title><%= `${dataUser.Profile.fullName}'s Profile` %></title>
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="/style.css">
   </head>
   <body>
     <%- include('_navbarhomepage') %>
@@ -28,10 +28,6 @@
       <p class="profile-phoneNumber"><span style="font-weight: bold;">Phone Number: </span><%= dataUser.Profile.phoneNumber %></p>
       </div>
       
-      <div class="edit-profile button">
-        <a href="/profile/edit"> Edit Profile</a>
-       
-      </div>
     </div>
 
 

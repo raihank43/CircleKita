@@ -304,9 +304,24 @@ body {
 }
 
 .post-desc .post-name {
+  text-decoration: none;
+  color: white;
   font-weight: bold;
   margin-right: 10px;
 }
+
+.post-desc .post-name a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    margin-right: 10px;
+  }
+  
+
+.post-desc .post-name :hover {
+    color: rgb(107, 155, 194);
+  }
+  
 
 .post-desc .post-date {
   color: #00b48a;
@@ -338,63 +353,59 @@ body {
   margin: 0;
 }
 
-
-
-
 /* USER PROFILE HEADER */
 
 .profile-header {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: #112240;
-    color: #ccd6f6;
-    padding: 20px;
-    border-radius: 10px;
-    margin-bottom: 20px;
-  }
-  
-  .profile-img {
-    display: flex;
-    align-items: center;
-  }
-  
-  .profile-img img {
-    width: 200px;
-    height: 200px;
-    border-radius: 50%;
-    margin-right: 50px;
-  }
-  
-  .edit-profile {
-    background-color: #00b48a;
-    color: #0a192f;
-    padding: 10px 20px;
-    border-radius: 3px;
-    text-align: center;
-    margin-left: 10px;
-  }
-  
-  .edit-profile a {
-    color: #0a192f;
-    text-decoration: none;
-  }
-  
-  .profile-desc {
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .profile-desc .profile-fullname {
-    font-size: 24px;
-    font-weight: bold;
-    margin-bottom: 5px;
-  }
-  
-  .profile-desc .profile-username,
-  .profile-desc .profile-createdDate,
-  .profile-desc .profile-address,
-  .profile-desc .profile-phoneNumber {
-    margin-bottom: 5px;
-  }
-  
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #112240;
+  color: #ccd6f6;
+  padding: 20px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+.profile-img {
+  display: flex;
+  align-items: center;
+}
+
+.profile-img img {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  margin-right: 50px;
+}
+
+.edit-profile {
+  background-color: #00b48a;
+  color: #0a192f;
+  padding: 10px 20px;
+  border-radius: 3px;
+  text-align: center;
+  margin-left: 10px;
+}
+
+.edit-profile a {
+  color: #0a192f;
+  text-decoration: none;
+}
+
+.profile-desc {
+  display: flex;
+  flex-direction: column;
+}
+
+.profile-desc .profile-fullname {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.profile-desc .profile-username,
+.profile-desc .profile-createdDate,
+.profile-desc .profile-address,
+.profile-desc .profile-phoneNumber {
+  margin-bottom: 5px;
+}

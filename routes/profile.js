@@ -17,5 +17,9 @@ const storage = multer.diskStorage({
 router.get("/", Controller.profile);
 router.get("/create", Controller.createProfile);
 router.post("/create", upload.single("profileImage"), Controller.saveProfile);
+router.get("/edit", Controller.editProfile)
+router.post("/edit")
+
+router.get("/:username", Controller.othersProfile)
 
 module.exports = router;
