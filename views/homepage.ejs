@@ -14,7 +14,7 @@
     <div class="post-form">
       <form method="post">
         <div class="user-info">
-          <img class="profile-pic" src="/profilePicture/<%= user.Profile.profilePicture %>" alt="" />
+          <img class="profile-pic" <%- !user.Profile || !user.Profile.profilePicture ? 'src="/assets/empty-profile.png"' : `src="/profilePicture/${user.Profile.profilePicture}"` %> alt="" />
           <span class="username"><%= user.username %></span>
         </div>
         <input type="text" name="title" placeholder="Title">
