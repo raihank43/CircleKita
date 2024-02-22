@@ -16,20 +16,33 @@
         <img src="/assets/circlekitalogo.png" alt="" />
       </div>
 
-      <% if (error) { %>
-      <div class="error-alert-register">
-        <p style="color: red"><%= error %></p>
-      </div>
-
-      <% } %>
 
       <div class="register-form">
         <form action="" method="post">
           <label>Username</label><br />
           <input type="text" name="username" /><br />
 
+          <% if (error) { %> <% const errorSplit = error.split(",") %>
+          <div class="alert-message">
+              <p>
+            <%= errorSplit.find((el)=> el.includes('Username')) %>
+          </p>
+          </div>
+          <% } %>
+
           <label>Email</label><br />
           <input type="text" name="email" /><br />
+
+          
+          <% if (error) { %> <% const errorSplit = error.split(",") %>
+          <div class="alert-message">
+              <p>
+            <%= errorSplit.find((el)=> el.includes('Email')) %>
+          </p>
+          </div>
+          <% } %>
+
+          
 
           <label>Password</label><br />
           <input type="password" name="password" /><br />

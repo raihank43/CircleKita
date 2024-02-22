@@ -12,13 +12,32 @@
 
     <form action="" method="POST" enctype="multipart/form-data">
     <div class="post-form">
+        
       <form method="post">
         <div class="user-info">
           <img class="profile-pic" <%- !user.Profile || !user.Profile.profilePicture ? 'src="/assets/empty-profile.png"' : `src="/profilePicture/${user.Profile.profilePicture}"` %> alt="" />
           <span class="username"><%= user.username %></span>
         </div>
         <input type="text" name="title" placeholder="Title">
+
+        <% if (error) { %> <% const errorSplit = error.split(",") %>
+        <div class="alert-message">
+            <p>
+          <%= errorSplit.find((el)=> el.includes('Title')) %>
+        </p>
+        </div>
+        <% } %>
+
         <textarea name="content" placeholder="What's happening?"></textarea>
+
+        <% if (error) { %> <% const errorSplit = error.split(",") %>
+        <div class="alert-message">
+            <p>
+          <%= errorSplit.find((el)=> el.includes('Content')) %>
+        </p>
+        </div>
+        <% } %>
+
         <label for="filePosts">Post File</label>
         <input type="file" name="filePosts" accept="image/*"/>
         <input type="submit" value="Post" />

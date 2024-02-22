@@ -86,6 +86,7 @@ class Controller {
   }
 
   static async homepage(req, res) {
+    const { error } = req.query;
     try {
       const user = await User.findOne({
         include: Profile,
@@ -105,9 +106,11 @@ class Controller {
       // res.json(dataPosts.posts);
       // console.log(dataPosts);
       //   res.send(dataPosts);
-        res.render("homepage", { dataPosts, user, formatTime });
-    //   res.send(user);
-    } catch (error) {}
+      res.render("homepage", { dataPosts, user, formatTime, error });
+      //   res.send(user);
+    } catch (error) {
+      console.log(error);
+    }
   }
 
   static async createPost(req, res) {
@@ -123,7 +126,15 @@ class Controller {
       res.redirect("/homepage");
     } catch (error) {
       console.log(error);
-      res.send(error.message);
+
+      if (error.name == "SequelizeValidationError") {
+        let errormsg = error.errors.map((el) => {
+          return el.message;
+        });
+        res.redirect(`/homepage?error=${errormsg}`);
+      } else {
+        res.send(error.message);
+      }
     }
   }
 
