@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Create New Profile</title>
+    <link rel="stylesheet" href="/style.css" />
+  </head>
+  <body>
+    <%- include('_navbarhomepage') %>
+
+    <div class="form-login">
+      <h1>Create New Profile</h1>
+      <div class="error-alert-register"></div>
+
+      <div>
+        <form action="" enctype="multipart/form-data" method="post">
+          <label>Full Name</label><br />
+          <input type="text" name="fullName" /><br />
+
+          <label>Phone Number</label><br />
+          <input type="text" name="phoneNumber" /><br />
+
+          <label>Address</label><br />
+          <input type="text" name="address" /><br />
+
+          <label>Upload Profile Picture</label><br />
+          <input type="file" name="profileImage" accept="image/*" required />
+          <br />
+
+          <input type="submit" value="Submit" />
+        </form>
+      </div>
+    </div>
+  </body>
+</html>

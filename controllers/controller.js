@@ -14,12 +14,12 @@ class Controller {
 
   static async postRegister(req, res) {
     const { username, email, password, role } = req.body;
-    const profileImage = req.file.filename;
+    // const profileImage = req.file.filename;
     // console.log(profileImage);
     // console.log(req.body, "<<<<<<<<<");
 
     try {
-      await User.create({ username, email, password, role, profileImage });
+      await User.create({ username, email, password, role });
       res.redirect("/login");
     } catch (error) {
       console.log(error);
@@ -84,7 +84,10 @@ class Controller {
   }
 
   static async homepage(req, res) {
-    const user = await User.findOne({ where: { id: req.session.userId } });
+    const user = await User.findOne({
+      include: Profile,
+      where: { id: req.session.userId },
+    });
     const dataPosts = await Post.findAll({ include: User });
     try {
       // res.json(dataPosts);
@@ -106,8 +109,54 @@ class Controller {
   }
 
   static async profile(req, res) {
+    console.log(req.session.userId);
     try {
-      res.send(`test`);
+      const dataUserProfile = await User.findOne({
+        include: Profile,
+        where: { id: req.session.userId },
+      });
+
+      if (!dataUserProfile.Profile) {
+        res.redirect("/profile/create");
+      } else {
+        res.render("userProfile", { dataUserProfile });
+      }
+
+      // res.send(dataUserProfile)
+    } catch (error) {
+      console.log(error);
+      res.send(error.message);
+    }
+  }
+
+  static async createProfile(req, res) {
+    try {
+      const dataUserProfile = await User.findOne({
+        include: Profile,
+        where: { id: req.session.userId },
+      });
+
+      res.render("createProfile");
+    } catch (error) {
+      console.log(error);
+      res.send(error.message);
+    }
+  }
+
+  static async saveProfile(req, res) {
+    const { fullName, phoneNumber, address } = req.body;
+    const profileImage = req.file.filename;
+    console.log(req.body);
+    console.log(profileImage);
+    try {
+      await Profile.create({
+        fullName,
+        UserId: req.session.userId,
+        phoneNumber,
+        address,
+        profilePicture: profileImage,
+      });
+      res.redirect("/profile");
     } catch (error) {
       console.log(error);
       res.send(error.message);
