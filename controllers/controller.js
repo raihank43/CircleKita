@@ -1,4 +1,4 @@
-const { User } = require("../models");
+const { User, Post } = require("../models");
 const bcrypt = require("bcryptjs");
 
 class Controller {

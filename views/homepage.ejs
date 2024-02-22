@@ -23,58 +23,33 @@
     </div>
 
     <div class="feed">
-      <!-- Posts will be inserted here -->
-
-      <div class="feed-posts">
-        <div class="post-desc">
-          <img class="profile-pic" src="/assets/user.png" alt="" />
-          <p class="post-name">Anonymous</p>
-          <p class="post-date">2024-01-01</p>
-        </div>
-        <div class="post-content">
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestiae
-            pariatur animi veritatis facilis commodi eaque corporis explicabo,
-            culpa iste repellat?
-          </p>
-          <img src="" alt="" class="post-img" />
-
-          <div class="post-footer">
-            <img src="" alt="" class="likes-logo" />
-            <p class="post-likes">20</p>
-          </div>
-        </div>
 
 
       </div>
 
-      <div class="feed-posts">
-        <div class="post-desc">
-          <img class="profile-pic" src="/assets/user.png" alt="" />
-          <p class="post-name">Anonymous</p>
-          <p class="post-date">2024-01-01</p>
-          
-          
-          <img class="post-edit-logo" alt="">
-          <img class="post-delete-logo" alt="">
-      
-        </div>
-        <div class="post-content">
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestiae
-            pariatur animi veritatis facilis commodi eaque corporis explicabo,
-            culpa iste repellat?
-          </p>
-          <img src="" alt="" class="post-img" />
+      <% dataPosts.forEach(element => { %>
+        <div class="feed-posts">
+          <div class="post-desc">
+            <img class="profile-pic" src="/assets/user.png" alt="" />
+            <p class="post-name"><%= element.User.username %></p>
+            <p class="post-date"><%= element.createdAt %></p></p>
+          </div>
+          <div class="post-content">
+            <p>
+              <%= element.content %>
+            </p>
+            <img src="" alt="" class="post-img" />
 
-          <div class="post-footer">
-            <img src="" alt="" class="likes-logo" />
-            <p class="post-likes">20</p>
+            <div class="post-footer">
+              <button class="like-button">
+                  <img src="path/to/like-icon.png" alt="Like" class="likes-logo" />
+              </button>
+              <p class="post-likes" id="post-likes"><%= element.likes %></p>
+          </div>
+            
           </div>
         </div>
-
-
-      </div>
+        <% }) %>
     </div>
 
 
