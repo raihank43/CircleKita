@@ -134,3 +134,202 @@ body {
 .register-page .register-form a {
   color: #00b48a;
 }
+
+/* LOGIN FORM */
+
+.form-login {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #0a192f;
+  color: #ccd6f6;
+  padding: 20px;
+}
+
+.form-login h1 {
+  color: #00b48a;
+  margin-bottom: 20px;
+}
+
+.form-login .error-alert-register {
+  color: #ff0000;
+  margin-bottom: 10px;
+}
+
+.form-login form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 500px;
+}
+
+.form-login form label {
+  margin-bottom: 5px;
+  align-self: flex-start;
+}
+
+.form-login form input[type="text"],
+.form-login form input[type="password"] {
+  border: none;
+  padding: 10px;
+  background-color: #112240;
+  color: #ccd6f6;
+  border-radius: 3px;
+  margin-bottom: 15px;
+  width: 100%;
+}
+
+.form-login form input[type="submit"] {
+  border: none;
+  padding: 10px 20px;
+  background-color: #00b48a;
+  color: #0a192f;
+  cursor: pointer;
+  border-radius: 3px;
+  width: 100%;
+  text-align: center;
+}
+
+.form-login form input[type="submit"]:hover {
+  background-color: #00d1a0;
+}
+
+.form-login form p {
+  margin-top: 10px;
+  text-align: center;
+}
+
+.form-login form a {
+  color: #00b48a;
+}
+
+/* HOMEPAGE */
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #0a192f;
+    color: #ccd6f6;
+}
+
+.post-form {
+    margin: 20px;
+    background-color: #112240;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.post-form .user-info {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.post-form .profile-pic {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.post-form textarea {
+    width: 100%;
+    height: 100px;
+    margin-bottom: 10px;
+    background-color: #0a192f;
+    color: #ccd6f6;
+    border: none;
+    padding: 10px;
+    border-radius: 3px;
+}
+
+.post-form input[type="file"] {
+    margin-bottom: 10px;
+}
+
+.post-form input[type="submit"] {
+    background-color: #00b48a;
+    color: #0a192f;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 3px;
+    width: 100%;
+    text-align: center;
+}
+
+.post-form input[type="submit"]:hover {
+    background-color: #00d1a0;
+}
+
+.feed {
+    margin: 20px;
+}
+
+
+
+
+
+/* POSTS */
+
+
+.feed {
+    margin: 20px;
+  }
+  
+  .feed-posts {
+    background-color: #112240;
+    color: #ccd6f6;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+  }
+  
+  .post-desc {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  
+  .post-desc .profile-pic {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 10px;
+  }
+  
+  .post-desc .post-name {
+    font-weight: bold;
+    margin-right: 10px;
+  }
+  
+  .post-desc .post-date {
+    color: #00b48a;
+  }
+  
+  .post-content p {
+    margin-bottom: 10px;
+  }
+  
+  .post-content .post-img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+  }
+  
+  .post-footer {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+  }
+  
+  .post-footer .likes-logo {
+    width: 20px;
+    height: 20px;
+    margin-right: 5px;
+  }
+  
+  .post-footer .post-likes {
+    margin: 0;
+  }
+  

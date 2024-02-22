@@ -9,12 +9,15 @@
   </head>
   <body>
     <%- include('_navbar') %>
+
+    
     <div class="form-login">
       <h1>Selamat Datang, Silahkan Login.</h1>
-
-      <% if (error) { %>
-      <p style="color: red"><%= error %></p>
-      <% } %>
+      <div class="error-alert-register">
+        <% if (error) { %>
+        <p style="color: red"><%= error %></p>
+        <% } %>
+      </div>
 
       <div>
         <form action="" method="post">

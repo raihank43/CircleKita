@@ -4,17 +4,77 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>CircleKita</title>
-    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="/style.css" />
     <%- include('_fonts') %>
   </head>
   <body>
     <%- include('_navbarhomepage') %>
 
+    <div class="post-form">
+      <form action="/post" method="post">
+        <div class="user-info">
+          <img class="profile-pic" src="/assets/user.png" alt="" />
+          <span class="username">Username</span>
+        </div>
+        <textarea name="content" placeholder="What's happening?"></textarea>
+        <input type="file" name="image" />
+        <input type="submit" value="Post" />
+      </form>
+    </div>
 
-    <div>
+    <div class="feed">
+      <!-- Posts will be inserted here -->
+
+      <div class="feed-posts">
+        <div class="post-desc">
+          <img class="profile-pic" src="/assets/user.png" alt="" />
+          <p class="post-name">Anonymous</p>
+          <p class="post-date">2024-01-01</p>
+        </div>
+        <div class="post-content">
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestiae
+            pariatur animi veritatis facilis commodi eaque corporis explicabo,
+            culpa iste repellat?
+          </p>
+          <img src="" alt="" class="post-img" />
+
+          <div class="post-footer">
+            <img src="" alt="" class="likes-logo" />
+            <p class="post-likes">20</p>
+          </div>
+        </div>
+
+
+      </div>
+
+      <div class="feed-posts">
+        <div class="post-desc">
+          <img class="profile-pic" src="/assets/user.png" alt="" />
+          <p class="post-name">Anonymous</p>
+          <p class="post-date">2024-01-01</p>
+        </div>
+        <div class="post-content">
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestiae
+            pariatur animi veritatis facilis commodi eaque corporis explicabo,
+            culpa iste repellat?
+          </p>
+          <img src="" alt="" class="post-img" />
+
+          <div class="post-footer">
+            <img src="" alt="" class="likes-logo" />
+            <p class="post-likes">20</p>
+          </div>
+        </div>
+
+
+      </div>
+    </div>
+
+
 
     </div>
 
-    <a href="/addPost">add Post</a>
   </body>
 </html>
