@@ -1,3 +1,4 @@
+const { Op } = require("sequelize");
 const formatTime = require("../helpers/formatWaktu");
 const { User, Post, Profile } = require("../models");
 const bcrypt = require("bcryptjs");
@@ -220,6 +221,32 @@ class Controller {
       });
 
       res.render("editProfile", { dataUserProfile });
+    } catch (error) {
+      console.log(error);
+      res.send(error.message);
+    }
+  }
+
+  static async search(req, res) {
+    const { search } = req.query;
+    try {
+      const searchData = await Post.findAll({
+        include: [
+          {
+            model: User,
+            include: [Profile],
+          },
+        ],
+        where: {
+          content: {
+            [Op.iLike]: `%${search}%`,
+          },
+        },
+      });
+
+      //   console.log(searchData);
+      //   res.send(searchData);
+      res.render("search", { searchData, search, formatTime});
     } catch (error) {
       console.log(error);
       res.send(error.message);
