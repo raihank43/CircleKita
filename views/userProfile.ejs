@@ -48,6 +48,8 @@
                 <img class="profile-pic" src="/profilePicture/<%= dataUser.Profile.profilePicture %>" alt="" />
                 <p class="post-name"><%= dataUser.username %></p>
                 <p class="post-date"><%= formatTime(element.createdAt) %></p></p>
+                
+                <a href="profile/deletePost/<%= element.id %>"  class="delete-button">Delete</a>
               </div>
               <div class="post-content">
                 <h2><%= element.title %></h2>
@@ -56,10 +58,10 @@
                 <!-- <img src="file-posts/filePosts-1708594674667.png" alt="" class="post-img" /> -->
     
                 <div class="post-footer">
-                  <button class="like-button">
-                      <img src="path/to/like-icon.png" alt="Like" class="likes-logo" />
-                  </button>
-                  <p class="post-likes" id="post-likes"><%= element.likes %></p>
+                    <a class="like-button" href="/homepage/like/<%= element.id %>">
+                        <img src="/assets/like.png" alt="Like" class="likes-logo"/>
+                    </a>
+                    <p class="post-likes" id="post-likes"><%= element.likes %></p>
               </div>
                 
               </div>

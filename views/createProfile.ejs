@@ -18,11 +18,37 @@
           <label>Full Name</label><br />
           <input type="text" name="fullName" /><br />
 
+          
+          <div>
+            <% if (error) { %> <% const errorSplit = error.split(",") %>
+              <p style="color: red; font-weight: bold;">
+            <%= errorSplit.find((el)=> el.includes('Name')) %>
+          </p>
+          <% } %>
+          </div>
+          
+
           <label>Phone Number</label><br />
           <input type="text" name="phoneNumber" /><br />
 
+          <% if (error) { %> <% const errorSplit = error.split(",") %>
+          <div>
+              <p style="color: red; font-weight: bold;">
+            <%= errorSplit.find((el)=> el.includes('Phone')) %>
+          </p>
+          </div>
+          <% } %>
+
           <label>Address</label><br />
           <input type="text" name="address" /><br />
+
+          <% if (error) { %> <% const errorSplit = error.split(",") %>
+          <div>
+              <p style="color: red; font-weight: bold;">
+            <%= errorSplit.find((el)=> el.includes('Address')) %>
+          </p>
+          </div>
+          <% } %>
 
           <label>Upload Profile Picture</label><br />
           <input type="file" name="profileImage" accept="image/*" required />

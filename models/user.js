@@ -91,5 +91,8 @@ module.exports = (sequelize, DataTypes) => {
       modelName: "User",
     }
   );
+  // User.beforeCreate(async (user, options) => {
+  //   user.role = "user";
+  // });
   return User;
 };

@@ -363,7 +363,7 @@ body {
 }
 
 .post-footer .post-likes {
-  margin: 0;
+  margin-left: 10px;
 }
 
 /* USER PROFILE HEADER */
@@ -448,4 +448,17 @@ body {
 
 .alert-message.closebtn:hover {
   color: black;
+}
+
+.like-button {
+  background-color: #3c20c8;
+  color: #ffffff;
+  padding: 5px 10px;
+  border-radius: 3px;
+  text-decoration: none;
+}
+
+.like-button:hover {
+  background-color: #321ba5;
+  font-weight: bold;
 }

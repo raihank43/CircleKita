@@ -167,13 +167,14 @@ class Controller {
   }
 
   static async createProfile(req, res) {
+    const { error } = req.query;
     try {
       const dataUserProfile = await User.findOne({
         include: Profile,
         where: { id: req.session.userId },
       });
 
-      res.render("createProfile", { dataUserProfile });
+      res.render("createProfile", { dataUserProfile, error });
     } catch (error) {
       console.log(error);
       res.send(error.message);
@@ -194,7 +195,15 @@ class Controller {
       res.redirect("/profile");
     } catch (error) {
       console.log(error);
-      res.send(error.message);
+
+      if (error.name == "SequelizeValidationError") {
+        let errormsg = error.errors.map((el) => {
+          return el.message;
+        });
+        res.redirect(`/profile/create?error=${errormsg}`);
+      } else {
+        res.send(error.message);
+      }
     }
   }
 
@@ -219,7 +228,6 @@ class Controller {
       //   res.send(dataUserPost)
     } catch (error) {
       console.log(error);
-      res.send(error.message);
     }
   }
 
@@ -288,6 +296,40 @@ class Controller {
       }
 
       res.redirect("/profile");
+    } catch (error) {
+      console.log(error);
+      res.send(error.message);
+    }
+  }
+  static async deletePost(req, res) {
+    const { id: postId } = req.params;
+    try {
+      const posts = await Post.findByPk(postId);
+      await posts.destroy();
+      res.redirect("/homepage");
+    } catch (error) {
+      console.log(error);
+      res.send(error.message);
+    }
+  }
+  static async deletePostInProfile(req, res) {
+    const { id: postId } = req.params;
+    try {
+      // res.send("hapus");
+      const posts = await Post.findByPk(postId);
+      await posts.destroy();
+      res.redirect("/profile");
+    } catch (error) {
+      console.log(error);
+      res.send(error.message);
+    }
+  }
+  static async likePost(req, res) {
+    const { id: postId } = req.params;
+    try {
+      const posts = await Post.findByPk(postId);
+      const incrementResult = await posts.increment("likes", { by: 1 });
+      res.redirect("/homepage");
     } catch (error) {
       console.log(error);
       res.send(error.message);
