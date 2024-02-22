@@ -86,8 +86,10 @@ class Controller {
   static async homepage(req, res) {
     const user = await User.findOne({ where: { id: req.session.userId } });
     const dataPosts = await Post.findAll({ include: User });
+    // const Post = await Post.findByPk(req.session.userId);
     try {
-      // res.json(dataPosts);
+      // res.json(user);
+      // res.json(dataPosts.posts);
       // console.log(dataPosts);
       res.render("homepage", { dataPosts, user });
     } catch (error) {}
