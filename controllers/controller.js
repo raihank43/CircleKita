@@ -1,6 +1,6 @@
 const { Op } = require("sequelize");
 const formatTime = require("../helpers/formatWaktu");
-const { User, Post, Profile } = require("../models");
+const { User, Post, Profile, Tag } = require("../models");
 const bcrypt = require("bcryptjs");
 
 class Controller {
@@ -87,6 +87,8 @@ class Controller {
 
   static async homepage(req, res) {
     const { error } = req.query;
+    const dataTags = await Post.findAll({ include: Tag });
+    // res.json(dataTags);
     try {
       const user = await User.findOne({
         include: Profile,
@@ -98,6 +100,9 @@ class Controller {
             model: User,
             include: [Profile],
           },
+          {
+            model: Tag,
+          },
         ],
         order: [["createdAt", "DESC"]],
       });
@@ -106,7 +111,7 @@ class Controller {
       // res.json(dataPosts.posts);
       // console.log(dataPosts);
       //   res.send(dataPosts);
-      res.render("homepage", { dataPosts, user, formatTime, error });
+      res.render("homepage", { dataPosts, user, formatTime, error, dataTags });
       //   res.send(user);
     } catch (error) {
       console.log(error);

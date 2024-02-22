@@ -1,42 +1,42 @@
 [
   {
-    "PostsId": 1,
+    "PostsId": 3,
     "TagsId": 1
   },
   {
-    "PostsId": 2,
+    "PostsId": 1,
     "TagsId": 2
   },
   {
-    "PostsId": 3,
+    "PostsId": 1,
     "TagsId": 3
   },
   {
-    "PostsId": 4,
+    "PostsId": 3,
     "TagsId": 4
   },
   {
-    "PostsId": 5,
+    "PostsId": 1,
     "TagsId": 5
   },
   {
-    "PostsId": 6,
+    "PostsId": 2,
     "TagsId": 6
   },
   {
-    "PostsId": 7,
+    "PostsId": 2,
     "TagsId": 7
   },
   {
-    "PostsId": 8,
+    "PostsId": 2,
     "TagsId": 8
   },
   {
-    "PostsId": 9,
+    "PostsId": 3,
     "TagsId": 9
   },
   {
-    "PostsId": 10,
+    "PostsId": 1,
     "TagsId": 10
   }
 ]

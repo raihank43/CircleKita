@@ -57,6 +57,14 @@
             <p class="post-name"><a href="/profile/<%= element.User.username  %>"><%= element.User.username %></a></p>
             <p class="post-date"><%= formatTime(element.createdAt) %></p></p>
 
+
+            
+            
+            
+
+
+
+
             <% if (user.role == 'admin' || element.User.id == user.id) { %>
             <a href="homepage/deletePost/<%= element.id %>"  class="delete-button">Delete</a>
             <% } %>
@@ -68,7 +76,13 @@
               <%= element.content %>
             </p>
             <img src="/file-posts/<%= element.filePosts %>" alt="" class="post-img" />
-            <!-- <img src="file-posts/filePosts-1708594674667.png" alt="" class="post-img" /> -->
+            
+            
+              <p>Tags: 
+                <% element.Tags.forEach(tag => { %>
+                  <%= tag.name %>,
+                <% }) %>
+              </p>
 
             <div class="post-footer">
               <a class="like-button" href="/homepage/like/<%= element.id %>">
