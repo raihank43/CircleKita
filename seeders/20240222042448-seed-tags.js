@@ -12,11 +12,11 @@ module.exports = {
      *   isBetaMember: false
      * }], {});
      */
-    const data = require("../data/users.json").map((element) => {
+    const data = require("../data/tags.json").map((element) => {
       element.createdAt = element.updatedAt = new Date();
       return element;
     });
-    await queryInterface.bulkInsert("Users", data, {});
+    await queryInterface.bulkInsert("Tags", data, {});
   },
 
   async down(queryInterface, Sequelize) {
@@ -26,7 +26,7 @@ module.exports = {
      * Example:
      * await queryInterface.bulkDelete('People', null, {});
      */
-    await queryInterface.bulkDelete("Users", null, {
+    await queryInterface.bulkDelete("Tags", null, {
       truncate: true,
       restartIdentity: true,
       cascade: true,

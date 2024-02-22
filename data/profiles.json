@@ -1,0 +1,72 @@
+[
+  {
+    "UserId": 1,
+    "profilePicture": "url/to/picture1.jpg",
+    "fullName": "John Doe",
+    "phoneNumber": "123-456-7890",
+    "address": "123 Main St"
+  },
+  {
+    "UserId": 2,
+    "profilePicture": "url/to/picture2.jpg",
+    "fullName": "Jane Smith",
+    "phoneNumber": "987-654-3210",
+    "address": "456 Oak Ave"
+  },
+  {
+    "UserId": 3,
+    "profilePicture": "url/to/picture3.jpg",
+    "fullName": "Bob Johnson",
+    "phoneNumber": "555-123-4567",
+    "address": "789 Pine Rd"
+  },
+  {
+    "UserId": 4,
+    "profilePicture": "url/to/picture4.jpg",
+    "fullName": "Alice Williams",
+    "phoneNumber": "333-999-7777",
+    "address": "101 Cedar Lane"
+  },
+  {
+    "UserId": 5,
+    "profilePicture": "url/to/picture5.jpg",
+    "fullName": "David Brown",
+    "phoneNumber": "777-555-1234",
+    "address": "222 Elm Street"
+  },
+  {
+    "UserId": 6,
+    "profilePicture": "url/to/picture6.jpg",
+    "fullName": "Eva Davis",
+    "phoneNumber": "444-888-2222",
+    "address": "444 Birch Avenue"
+  },
+  {
+    "UserId": 7,
+    "profilePicture": "url/to/picture7.jpg",
+    "fullName": "Charlie Lee",
+    "phoneNumber": "666-333-1111",
+    "address": "777 Maple Drive"
+  },
+  {
+    "UserId": 8,
+    "profilePicture": "url/to/picture8.jpg",
+    "fullName": "Grace Taylor",
+    "phoneNumber": "111-777-4444",
+    "address": "888 Oak Street"
+  },
+  {
+    "UserId": 9,
+    "profilePicture": "url/to/picture9.jpg",
+    "fullName": "Frank White",
+    "phoneNumber": "222-666-8888",
+    "address": "999 Pine Lane"
+  },
+  {
+    "UserId": 10,
+    "profilePicture": "url/to/picture10.jpg",
+    "fullName": "Helen Adams",
+    "phoneNumber": "888-222-5555",
+    "address": "123 Spruce Road"
+  }
+]

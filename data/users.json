@@ -1,0 +1,62 @@
+[
+  {
+    "username": "Admin",
+    "email": "admin123@circlekita.com",
+    "password": "1234",
+    "role": "admin"
+  },
+  {
+    "username": "user1",
+    "email": "user1@example.com",
+    "password": "hashed_password1",
+    "role": "user"
+  },
+  {
+    "username": "john_doe",
+    "email": "john.doe@example.com",
+    "password": "hashed_password_john",
+    "role": "user"
+  },
+  {
+    "username": "jane_smith",
+    "email": "jane.smith@example.com",
+    "password": "hashed_password_jane",
+    "role": "user"
+  },
+  {
+    "username": "bob_johnson",
+    "email": "bob.johnson@example.com",
+    "password": "hashed_password_bob",
+    "role": "user"
+  },
+  {
+    "username": "alice_williams",
+    "email": "alice.williams@example.com",
+    "password": "hashed_password_alice",
+    "role": "user"
+  },
+  {
+    "username": "david_brown",
+    "email": "david.brown@example.com",
+    "password": "hashed_password_david",
+    "role": "user"
+  },
+  {
+    "username": "eva_davis",
+    "email": "eva.davis@example.com",
+    "password": "hashed_password_eva",
+    "role": "user"
+  },
+  {
+    "username": "charlie_lee",
+    "email": "charlie.lee@example.com",
+    "password": "hashed_password_charlie",
+    "role": "user"
+  },
+  {
+    "username": "grace_taylor",
+    "email": "grace.taylor@example.com",
+    "password": "hashed_password_grace",
+    "role": "user"
+  }
+]

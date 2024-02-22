@@ -1,0 +1,42 @@
+[
+  {
+    "PostsId": 1,
+    "TagsId": 1
+  },
+  {
+    "PostsId": 2,
+    "TagsId": 2
+  },
+  {
+    "PostsId": 3,
+    "TagsId": 3
+  },
+  {
+    "PostsId": 4,
+    "TagsId": 4
+  },
+  {
+    "PostsId": 5,
+    "TagsId": 5
+  },
+  {
+    "PostsId": 6,
+    "TagsId": 6
+  },
+  {
+    "PostsId": 7,
+    "TagsId": 7
+  },
+  {
+    "PostsId": 8,
+    "TagsId": 8
+  },
+  {
+    "PostsId": 9,
+    "TagsId": 9
+  },
+  {
+    "PostsId": 10,
+    "TagsId": 10
+  }
+]
