@@ -21,6 +21,7 @@ module.exports = (sequelize, DataTypes) => {
       updatedAt: DataTypes.DATE,
       likes: DataTypes.INTEGER,
       UserId: DataTypes.INTEGER,
+      filePosts: DataTypes.STRING,
     },
     {
       sequelize,
