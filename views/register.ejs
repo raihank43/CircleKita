@@ -4,33 +4,44 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Register | CircleKita</title>
+    <link rel="stylesheet" href="/style.css" />
+    <%- include('_fonts') %>
   </head>
   <body>
-    <h1>Buat Akun</h1>
+    <%- include('_navbar') %>
 
-    <% if (error) { %>
-    <div>
-      <p style="color: red;"><%= error %></p>
+    <div class="register-page">
+      <div class="header">
+        <h1>Selamat Datang di</h1>
+        <img src="/assets/circlekitalogo.png" alt="" />
+      </div>
+
+      <% if (error) { %>
+      <div class="error-alert-register">
+        <p style="color: red"><%= error %></p>
+      </div>
+
+      <% } %>
+
+      <div class="register-form">
+        <form action="" method="post">
+          <label>Username</label><br />
+          <input type="text" name="username" /><br />
+
+          <label>Email</label><br />
+          <input type="text" name="email" /><br />
+
+          <label>Password</label><br />
+          <input type="password" name="password" /><br />
+
+          <label>Role</label><br />
+          <input type="text" name="role" /><br />
+
+          <input type="submit" value="Submit" />
+        </form>
+
+        <p>Sudah punya akun? silahkan <a href="/login">Login.</a></p>
+      </div>
     </div>
-
-    <% } %>
-
-    <form action="" method="post">
-      <label>Username</label><br />
-      <input type="text" name="username" /><br />
-
-      <label>Email</label><br />
-      <input type="text" name="email" /><br />
-
-      <label>Password</label><br />
-      <input type="password" name="password" /><br />
-
-      <label>Role</label><br />
-      <input type="text" name="role" /><br />
-
-      <input type="submit" value="Submit" />
-    </form>
-
-    <p>Sudah punya akun? silahkan <a href="/login">Login.</a></p>
   </body>
 </html>

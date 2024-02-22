@@ -1,0 +1,136 @@
+body {
+  background-color: #0a192f;
+}
+
+/* FONT */
+* {
+  font-family: "Montserrat", sans-serif;
+}
+
+/* NAVBAR */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #0a192f;
+  padding: 20px;
+  color: #ccd6f6;
+}
+
+.navbar img {
+  height: 50px;
+}
+
+.navbar p {
+  margin: 0;
+}
+
+.navbar a {
+  color: #ccd6f6;
+  text-decoration: none;
+}
+
+.navbar .searchBar {
+  display: flex;
+}
+
+.navbar .searchBar input[type="text"] {
+  border: none;
+  padding: 10px;
+  background-color: #112240;
+  color: #ccd6f6;
+  border-radius: 3px 0 0 3px;
+}
+
+.navbar .searchBar input[type="submit"] {
+  border: none;
+  padding: 10px 20px;
+  background-color: #00b48a;
+  color: #0a192f;
+  cursor: pointer;
+  border-radius: 0 3px 3px 0;
+}
+
+.navbar .searchBar input[type="submit"]:hover {
+  background-color: #00d1a0;
+}
+
+/* REGISTER FORM */
+
+.register-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #0a192f;
+  color: #ccd6f6;
+  padding: 20px;
+}
+
+.register-page .header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.register-page .header h1 {
+  color: #00b48a;
+}
+
+.register-page .header img {
+  height: 100px;
+  margin-top: 10px;
+}
+
+.register-page .error-alert-register {
+  color: #ff0000;
+  margin-bottom: 10px;
+}
+
+.register-page .register-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 500px;
+}
+
+.register-page .register-form label {
+  margin-bottom: 5px;
+  align-self: flex-start;
+}
+
+.register-page .register-form input[type="text"],
+.register-page .register-form input[type="password"] {
+  border: none;
+  padding: 10px;
+  background-color: #112240;
+  color: #ccd6f6;
+  border-radius: 3px;
+  margin-bottom: 15px;
+  width: 120%;
+}
+
+.register-page .register-form input[type="submit"] {
+  border: none;
+  padding: 10px 20px;
+  background-color: #00b48a;
+  color: #0a192f;
+  cursor: pointer;
+  border-radius: 3px;
+  width: 100%;
+  text-align: center;
+}
+
+.register-page .register-form input[type="submit"]:hover {
+  background-color: #00d1a0;
+}
+
+.register-page .register-form p {
+  margin-top: 10px;
+  text-align: center;
+}
+
+.register-page .register-form a {
+  color: #00b48a;
+}
