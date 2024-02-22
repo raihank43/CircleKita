@@ -94,10 +94,13 @@ class Controller {
   }
 
   static async createPost(req, res) {
-    console.log(req.body)
+    // const profileImage = req.file.filename;
+    // const newUser = await User.create({ username, email, password, profileImage });
+    const { content, image } = req.body;
+    console.log(req.body);
     try {
-      const dataPosts = await Post.findAll({ include: User });
-      res.send(dataPosts);
+      // const dataPosts = await Post.findAll({ include: User });
+      // res.send(dataPosts);
     } catch (error) {
       console.log(error);
       res.send(error.message);
