@@ -87,7 +87,7 @@ class Controller {
 
   static async homepage(req, res) {
     const { error } = req.query;
-    const dataTags = await Post.findAll({ include: Tag });
+    const dataTags = await Tag.findAll({ include: Post });
     // res.json(dataTags);
     try {
       const user = await User.findOne({
@@ -120,14 +120,39 @@ class Controller {
 
   static async createPost(req, res) {
     const filePosts = req.file ? req.file.filename : null; // Jika req.file ada, gunakan req.file.filename. Jika tidak, gunakan null.
-    const { title, content, image } = req.body;
+    const { title, content } = req.body;
     try {
-      await Post.create({
+      //   if ((tags[0] && tags[1]) || (tags[1] && tags[0])) {
+      //     const tagsErrMs = `Choose tags or create a new one!`;
+      //     return res.redirect(`/homepage?error=${tagsErrMs}`);
+      //   } else if (tags[0] == "" && tags[1]) { // create tags
+      //     await Tag.create({ name: tags[1] });
+      //   }
+      //   const [tag, created] = await Tag.findOrCreate({
+      //     where: { name: tags },
+      //   });
+
+      const post = await Post.create({
         title,
         content,
         filePosts,
         UserId: req.session.userId,
       });
+      // Array tag
+      const tags = req.body.tags.split(",").map((tag) => tag.trim());
+      //   const tags = ["tag1", "tag2", "tag3"];
+
+      // Iterasi melalui setiap tag
+      for (let tagName of tags) {
+        // Mencari atau membuat tag
+        const [tag, created] = await Tag.findOrCreate({
+          where: { name: tagName },
+        });
+        // Menambahkan tag ke post
+        await post.addTag(tag);
+      }
+
+      //   await post.addTag(tag);
       res.redirect("/homepage");
     } catch (error) {
       console.log(error);
