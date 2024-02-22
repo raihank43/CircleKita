@@ -84,10 +84,13 @@ class Controller {
   }
 
   static async homepage(req, res) {
-    console.log(req.session.userId, "<<<<< dari router home"); // id user
     const user = await User.findOne({ where: { id: req.session.userId } });
-    console.log(user, { user });
-    res.render("homepage", { user });
+    const dataPosts = await Post.findAll({ include: User });
+    try {
+      // res.json(dataPosts);
+      // console.log(dataPosts);
+      res.render("homepage", { dataPosts, user });
+    } catch (error) {}
   }
 }
 
