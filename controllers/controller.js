@@ -305,6 +305,17 @@ class Controller {
       res.send(error.message);
     }
   }
+  static async likePost(req, res) {
+    const { id: postId } = req.params;
+    try {
+      const posts = await Post.findByPk(postId);
+      const incrementResult = await posts.increment("likes", { by: 1 });
+      res.redirect("/homepage");
+    } catch (error) {
+      console.log(error);
+      res.send(error.message);
+    }
+  }
 }
 
 module.exports = Controller;
