@@ -23,7 +23,7 @@
               <div class="post-desc">
                 <img class="profile-pic" <%- !element.User.Profile || !element.User.Profile.profilePicture ? 'src="/assets/empty-profile.png"' : `src="/profilePicture/${element.User.Profile.profilePicture}"` %> alt="" />
                 <p class="post-name"><a href="/profile/<%= element.User.username  %>"><%= element.User.username %></a></p>
-                <p class="post-date"><%= formatTime(element.createdAt) %></p></p>
+                <p class="post-date"><%= `${formatTime(element.createdAt)} (${element.timeSincePosted})` %></p></p>
               </div>
               <div class="post-content">
                 <h2><%= element.title %></h2>

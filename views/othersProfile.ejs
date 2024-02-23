@@ -42,7 +42,7 @@
               <div class="post-desc">
                 <img class="profile-pic" src="/profilePicture/<%= dataUser.Profile.profilePicture %>" alt="" />
                 <p class="post-name"><%= dataUser.username %></p>
-                <p class="post-date"><%= formatTime(element.createdAt) %></p></p>
+                <p class="post-date"><%= `${formatTime(element.createdAt)} (${element.timeSincePosted})` %></p></p>
               </div>
               <div class="post-content">
                 <h2><%= element.title %></h2>

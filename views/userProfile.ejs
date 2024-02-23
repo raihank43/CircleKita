@@ -47,7 +47,7 @@
               <div class="post-desc">
                 <img class="profile-pic" src="/profilePicture/<%= dataUser.Profile.profilePicture %>" alt="" />
                 <p class="post-name"><%= dataUser.username %></p>
-                <p class="post-date"><%= formatTime(element.createdAt) %></p></p>
+                <p class="post-date"><%= `${formatTime(element.createdAt)} (${element.timeSincePosted})` %></p></p>
                 
                 <a href="profile/deletePost/<%= element.id %>"  class="delete-button">Delete</a>
               </div>

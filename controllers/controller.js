@@ -111,7 +111,10 @@ class Controller {
       // res.json(dataPosts.posts);
       // console.log(dataPosts);
       //   res.send(dataPosts);
-      res.render("homepage", { dataPosts, user, formatTime, error, dataTags });
+      const getPostCount = await User.getPostCount(req.session.userId)
+    //   res.json(getPostCount)
+    //   console.log(getPostCount)
+      res.render("homepage", { dataPosts, user, formatTime, error, dataTags, getPostCount });
       //   res.send(user);
     } catch (error) {
       console.log(error);

@@ -15,6 +15,10 @@ module.exports = (sequelize, DataTypes) => {
       User.hasOne(models.Profile, { foreignKey: "UserId" });
       User.hasMany(models.Post, { foreignKey: "UserId" });
     }
+
+    static async getPostCount(UserId) {
+      return sequelize.models.Post.count({where: {UserId: UserId}})
+    }
   }
   User.init(
     {
