@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= `Search '${tags}'` %></title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <%- include('_navbarhomepage') %>
+
+
+    <% if (dataPosts.length == 0) { %>
+         <div>
+        <h1 style="text-align: center;">Tidak ada post yang sesuai.</h1>
+    </div>
+
+    <% } else { %>
+        <h1 style="text-align: center;"><%= `Post dengan tag '${tags}'` %></h1>
+
+        <% dataPosts.forEach(element => { %>
+            <div class="feed-posts">
+              <div class="post-desc">
+                <img class="profile-pic" <%- !element.User.Profile || !element.User.Profile.profilePicture ? 'src="/assets/empty-profile.png"' : `src="/profilePicture/${element.User.Profile.profilePicture}"` %> alt="" />
+                <p class="post-name"><a href="/profile/<%= element.User.username  %>"><%= element.User.username %></a></p>
+                <p class="post-date"><%= `${formatTime(element.createdAt)} (${element.timeSincePosted})` %></p></p>
+              </div>
+              <div class="post-content">
+                <h2><%= element.title %></h2>
+                <p>
+                  <%= element.content %>
+                </p>
+                <img src="/file-posts/<%= element.filePosts %>" alt="" class="post-img" />
+                <!-- <img src="file-posts/filePosts-1708594674667.png" alt="" class="post-img" /> -->
+    
+                <div class="post-footer">
+                    <a class="like-button" href="/homepage/like/<%= element.id %>">
+                        <img src="/assets/like.png" alt="Like" class="likes-logo"/>
+                    </a>
+                    <p class="post-likes" id="post-likes"><%= element.likes %></p>
+              </div>
+                
+              </div>
+            </div>
+            <% }) %>
+
+
+
+
+    <% } %>
+
+
+
+
+    
+</body>
+</html>

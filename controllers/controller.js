@@ -111,10 +111,17 @@ class Controller {
       // res.json(dataPosts.posts);
       // console.log(dataPosts);
       //   res.send(dataPosts);
-      const getPostCount = await User.getPostCount(req.session.userId)
-    //   res.json(getPostCount)
-    //   console.log(getPostCount)
-      res.render("homepage", { dataPosts, user, formatTime, error, dataTags, getPostCount });
+      const getPostCount = await User.getPostCount(req.session.userId);
+      //   res.json(getPostCount)
+      //   console.log(getPostCount)
+      res.render("homepage", {
+        dataPosts,
+        user,
+        formatTime,
+        error,
+        dataTags,
+        getPostCount,
+      });
       //   res.send(user);
     } catch (error) {
       console.log(error);
@@ -279,25 +286,45 @@ class Controller {
   }
 
   static async search(req, res) {
-    const { search } = req.query;
+    const { search, tags } = req.query;
     try {
-      const searchData = await Post.findAll({
-        include: [
-          {
-            model: User,
-            include: [Profile],
+      if (search) {
+        const searchData = await Post.findAll({
+          include: [
+            {
+              model: User,
+              include: [Profile],
+            },
+          ],
+          where: {
+            content: {
+              [Op.iLike]: `%${search}%`,
+            },
           },
-        ],
-        where: {
-          content: {
-            [Op.iLike]: `%${search}%`,
-          },
-        },
-      });
+        });
+        return res.render("search", { searchData, search, formatTime });
+      }
+
+      if (tags) {
+        const dataPosts = await Post.findAll({
+          include: [
+            {
+              model: User,
+              include: [Profile],
+            },
+            {
+              model: Tag,
+              where: { name: tags }, // mencari tag dengan nama tertentu
+            },
+          ],
+          order: [["createdAt", "DESC"]],
+        });
+
+        return res.render("searchTags", { dataPosts, tags, formatTime });
+      }
 
       //   console.log(searchData);
       //   res.send(searchData);
-      res.render("search", { searchData, search, formatTime });
     } catch (error) {
       console.log(error);
       res.send(error.message);

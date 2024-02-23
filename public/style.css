@@ -471,12 +471,18 @@ body {
     margin-top: 10px;
   }
   
-  .tags-container .tag {
+  .tags-container .tag a {
+    text-decoration: none;
     background-color: #00b48a;
     color: #0a192f;
     padding: 5px 10px;
     border-radius: 3px;
     margin-right: 5px;
     margin-bottom: 5px;
+  }
+
+  .tags-container .tag a:hover {
+    color: white;
+    background-color: #007257;
   }
   

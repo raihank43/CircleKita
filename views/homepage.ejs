@@ -81,7 +81,7 @@
                <div class="tags-container">
                 
                 <% element.Tags.forEach(tag => { %>
-                  <span class="tag"><%= tag.name %></span>
+                  <span class="tag"> <a href="/search?tags=<%= tag.name %>"><%= tag.name %></a></span>
                 <% }) %>
               </div>
 
